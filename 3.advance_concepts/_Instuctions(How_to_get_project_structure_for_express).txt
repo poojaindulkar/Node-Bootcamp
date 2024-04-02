@@ -1,0 +1,13 @@
+express-generator will make a project folder, in which it will contain all the necessary folders reqired to make an app 
+
+
+steps to use express-generator
+
+1) Install express-generator globally on laptop
+   npm i express-generator -g
+2) To create app anywhere:
+   express <app_name> --view=ejs
+3) now use following commands:
+   cd <app_name>
+   npm i
+4) project structure is ready. Open it on code editor
