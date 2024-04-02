@@ -1,7 +1,0 @@
-To setup ejs
-1) ejs install-> npm install
-2) configure ejs-> app.set("view engine","ejs");
-3) make "views" folder (it should be views only not any other name, because node by default searches in views)
-4) make .ejs files in that folder(views)
-5) In route instead of app.send() use app.render()
-   At time of render only use one of the file in views folder, and dont use extention ".ejs" in render function
