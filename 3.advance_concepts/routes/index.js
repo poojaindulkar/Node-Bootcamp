@@ -4,11 +4,24 @@ const userModel=require("./users");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  req.session.ban=true;
   res.render('index');
   // res.send("Hello");
 });
 
-
+router.get('/checkban',function(req,res){
+  if(req.session.ban==true){
+    res.send("You are banned!!!!!!!!");
+  }else{
+    res.send("Not banned");
+  }
+})
+router.get('/removeban',function(req,res){
+  req.session.destroy(function(err){
+    if(err) throw err;
+    res.send("Ban removed😄")
+  })
+})
 router.get("/create", async function(req,res){
   const createuser=await userModel.create({
     username: "Neha",
@@ -39,5 +52,7 @@ router.get("/delete",async function(req,res){
   });
   res.send(deleteUser);
 })
+
+
 
 module.exports = router;

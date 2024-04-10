@@ -1,0 +1,27 @@
+sessions:
+require package----> express-session
+
+1)Create:
+    req.session.<session_name>=<session_value>;
+
+2)read:
+    req.session.<session_name>;
+
+3)delete:
+    req.session.destroy(callback_function);
+
+
+
+cookies:
+require package----> cookie-parser
+
+1)setup:
+    res.cookie("<cookie_name>",<cookie_value>) //res is used because cookies are set on client-side(browser)
+    ---
+2)read:
+    req.cookies.<cookie_name>
+    ---
+
+3)delete:
+    res.clearCookies("<cookie_name>")
+    ---

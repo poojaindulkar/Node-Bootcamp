@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+//session
+var session=require("express-session");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -12,6 +13,12 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+//session
+app.use(session({
+  resave:false, //! if session value is same server will not save the same data again.
+  saveUninitialized:false,
+  secret:"cdvdfvdfkjndjsndhjcskjcnc" //* secret key to encrypt data on server
+}))
 
 app.use(logger('dev'));
 app.use(express.json());
