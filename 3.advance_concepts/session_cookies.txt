@@ -1,6 +1,14 @@
 sessions:
 require package----> express-session
 
+// setup express session; 
+var session=require("express-session");
+app.use(session({
+  resave:false, //! if session value is same server will not save the same data again.
+  saveUninitialized:false,
+  secret:"cdvdfvdfkjndjsndhjcskjcnc" //* secret key to encrypt data on server
+}))
+
 1)Create:
     req.session.<session_name>=<session_value>;
 
@@ -14,6 +22,9 @@ require package----> express-session
 
 cookies:
 require package----> cookie-parser
+
+//setup cookies;
+app.use(cookieParser());
 
 1)setup:
     res.cookie("<cookie_name>",<cookie_value>) //res is used because cookies are set on client-side(browser)
